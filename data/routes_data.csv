@@ -1,0 +1,16 @@
+from_stop,to_stop,base_time,route,bidirectional
+"Colon Street","Carbon Market",5,04L,1
+"Carbon Market","Fuente Osmena",8,04L,1
+"Fuente Osmena","Lahug Area",10,04L,1
+"Lahug Area","Talamban Junction",12,04L,1
+"Talamban Junction","UP Cebu Entrance Gate",5,04L,1
+"Colon Street","SM City Cebu",12,12L,1
+"SM City Cebu","IT Park",6,12L,1
+"IT Park","Ayala Center Cebu",8,10C,1
+"Ayala Center Cebu","Talamban Junction",18,10C,1
+"Fuente Osmena","IT Park",8,01C,1
+"North Bus Terminal","Colon Street",10,01C,1
+"North Bus Terminal","SM City Cebu",15,01C,0
+"Lahug Area","Gaisano Country Mall",7,20B,1
+"Gaisano Country Mall","Talamban Junction",4,20B,1
+"SM City Cebu","Ayala Center Cebu",10,12L,1

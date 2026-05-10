@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <title>ISKOMPASS — UP Cebu Campus Guide</title>
+  <link rel="stylesheet" href="style.css" />
+  <!-- Favicon placeholder -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='%237B1113'/><text y='24' x='5' font-size='22'>🧭</text></svg>" />
+</head>
+<body>
+
+<!-- ═══════════════════════════════════════════
+     SCREEN 1 — LOGIN
+═══════════════════════════════════════════ -->
+<div id="screen-login" class="screen active">
+  <div class="login-wrap">
+    <div class="login-hero">
+      <div class="login-oblation">🏛️</div>
+      <h1>University of the Philippines Cebu</h1>
+      <h2>ISKOMPASS</h2>
+      <p>Your UP Cebu Campus Companion</p>
+    </div>
+    <div class="login-form-sheet">
+      <h3>Welcome, Isko & Iska! 👋</h3>
+      <div class="form-group">
+        <label>Username</label>
+        <input type="text" id="login-user" placeholder="Enter your username" autocomplete="username" />
+      </div>
+      <div class="form-group">
+        <label>Password</label>
+        <input type="password" id="login-pass" placeholder="Enter your password" autocomplete="current-password" />
+      </div>
+      <p class="error-msg" id="login-error">❌ Invalid credentials. Try again.</p>
+      <button class="btn-primary" onclick="doLogin()">Sign In</button>
+      <button class="btn-secondary" onclick="showSignup()">Create Account</button>
+      <button class="btn-google" onclick="doLogin()">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>
+        Continue with Google
+      </button>
+      <p style="font-size:11px;color:var(--gray-400);text-align:center;margin-top:14px;">
+        Demo: user / <strong>password</strong> &nbsp;|&nbsp; admin / <strong>admin123</strong>
+      </p>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════
+     SCREEN 2 — HOME
+═══════════════════════════════════════════ -->
+<div id="screen-home" class="screen">
+  <div class="home-hero">
+    <div class="home-oblation">🏛️</div>
+    <h1>University of the Philippines Cebu</h1>
+    <h2>CAMPUS GUIDE</h2>
+    <p id="home-greeting">Hello, Isko and Iska! Your UP Cebu Companion.</p>
+  </div>
+  <div class="home-cards">
+    <div class="feature-card" onclick="goTo('navigate')">
+      <div class="feature-icon maroon">🗺️</div>
+      <div class="feature-card-text">
+        <h3>Navigate Campus</h3>
+        <p>Find buildings, services & operating hours</p>
+      </div>
+      <svg class="feature-card-arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m9 18 6-6-6-6"/></svg>
+    </div>
+    <div class="feature-card" onclick="goTo('jeepney')">
+      <div class="feature-icon green">🚌</div>
+      <div class="feature-card-text">
+        <h3>Jeepney Routes</h3>
+        <p>Find routes to and from UP Cebu</p>
+      </div>
+      <svg class="feature-card-arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m9 18 6-6-6-6"/></svg>
+    </div>
+    <div class="feature-card" onclick="goTo('qr')">
+      <div class="feature-icon yellow">📋</div>
+      <div class="feature-card-text">
+        <h3>QR Grievance</h3>
+        <p>Submit concerns to campus offices</p>
+      </div>
+      <svg class="feature-card-arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m9 18 6-6-6-6"/></svg>
+    </div>
+  </div>
+
+  <div style="padding: 0 20px 8px;">
+    <div style="background:var(--white);border-radius:var(--radius);padding:16px;box-shadow:var(--shadow-sm);border-left:4px solid var(--green);">
+      <p style="font-family:var(--font-head);font-size:12px;font-weight:700;color:var(--green);text-transform:uppercase;letter-spacing:.6px;">📌 Campus Reminder</p>
+      <p style="font-size:12px;color:var(--gray-600);margin-top:4px;line-height:1.5;">UP Cebu Oblation Run is scheduled. Check the bulletin board near the Admin Building for updates.</p>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════
+     SCREEN 3 — NAVIGATE
+═══════════════════════════════════════════ -->
+<div id="screen-navigate" class="screen">
+  <div class="page-header">
+    <h1>🗺️ Navigate Campus</h1>
+    <p>Find buildings, services & info</p>
+  </div>
+  <div class="search-bar-wrap">
+    <div class="search-bar">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+      <input type="text" id="building-search" placeholder="Search by name or tag (e.g. food, wifi)..." oninput="searchBuildings(this.value)" />
+    </div>
+  </div>
+
+  <!-- Static 2D Map -->
+  <div class="map-area">
+    <div class="map-placeholder">
+      <div class="map-grid"></div>
+
+      <!-- Road lines (decorative) -->
+      <svg style="position:absolute;inset:0;width:100%;height:100%;z-index:1;" viewBox="0 0 400 300" preserveAspectRatio="none">
+        <path d="M0,150 Q100,140 200,150 Q300,160 400,150" stroke="#c4b59a" stroke-width="12" fill="none" opacity="0.6"/>
+        <path d="M180,0 Q185,80 180,150 Q175,220 180,300" stroke="#c4b59a" stroke-width="10" fill="none" opacity="0.5"/>
+        <path d="M0,80 Q80,75 160,80" stroke="#c4b59a" stroke-width="6" fill="none" opacity="0.4"/>
+        <path d="M240,200 Q320,195 400,200" stroke="#c4b59a" stroke-width="6" fill="none" opacity="0.4"/>
+        <!-- Campus boundary -->
+        <rect x="50" y="40" width="300" height="220" rx="8" stroke="#7B1113" stroke-width="1.5" fill="rgba(123,17,19,0.05)" stroke-dasharray="6,3"/>
+        <!-- Green areas -->
+        <ellipse cx="120" cy="130" rx="30" ry="20" fill="rgba(0,105,62,0.12)"/>
+        <ellipse cx="280" cy="180" rx="25" ry="18" fill="rgba(0,105,62,0.10)"/>
+        <text x="200" y="20" text-anchor="middle" font-size="9" fill="rgba(0,0,0,0.35)" font-family="Poppins,sans-serif" font-weight="600">UP CEBU CAMPUS MAP (Static Preview)</text>
+      </svg>
+
+      <!-- Building Pins -->
+      <div class="map-pin" style="left:25%;top:28%;" onclick="openBuilding(0)" title="Administration Building">
+        <div class="pin-dot"><span>1</span></div>
+        <div class="pin-label">Admin</div>
+      </div>
+      <div class="map-pin" style="left:45%;top:22%;" onclick="openBuilding(1)" title="Science Building">
+        <div class="pin-dot"><span>2</span></div>
+        <div class="pin-label">Science</div>
+      </div>
+      <div class="map-pin" style="left:65%;top:30%;" onclick="openBuilding(2)" title="Technology Innovation Center">
+        <div class="pin-dot"><span>3</span></div>
+        <div class="pin-label">TIC</div>
+      </div>
+      <div class="map-pin" style="left:38%;top:45%;" onclick="openBuilding(3)" title="Library Building">
+        <div class="pin-dot"><span>4</span></div>
+        <div class="pin-label">Library</div>
+      </div>
+      <div class="map-pin" style="left:72%;top:55%;" onclick="openBuilding(4)" title="School of Management">
+        <div class="pin-dot" style="background:var(--green);"><span>6</span></div>
+        <div class="pin-label">SOM</div>
+      </div>
+      <div class="map-pin" style="left:55%;top:65%;" onclick="openBuilding(5)" title="Undergraduate Building">
+        <div class="pin-dot"><span>7</span></div>
+        <div class="pin-label">UG Bldg</div>
+      </div>
+      <div class="map-pin" style="left:28%;top:62%;" onclick="openBuilding(6)" title="Union Building">
+        <div class="pin-dot" style="background:var(--yellow);"><span>12</span></div>
+        <div class="pin-label">Union</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Building List -->
+  <div class="building-list">
+    <h3>All Buildings</h3>
+    <div id="buildings-container"></div>
+  </div>
+</div>
+
+<!-- Building Detail Panel -->
+<div class="detail-overlay" id="detail-overlay" onclick="closeDetail(event)">
+  <div class="detail-panel" id="detail-panel">
+    <div class="detail-handle"></div>
+    <div class="detail-photo" id="detail-photo">🏛️</div>
+    <div class="detail-body">
+      <h2 id="detail-name">Building Name</h2>
+      <span class="detail-badge" id="detail-id-badge">#1</span>
+      <div class="detail-info-row">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        <div><h4>Services</h4><p id="detail-services">—</p></div>
+      </div>
+      <div class="detail-info-row">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        <div><h4>Operating Hours</h4><p id="detail-hours">—</p></div>
+      </div>
+      <div class="detail-info-row">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+        <div><h4>Person in Charge</h4><p id="detail-incharge">—</p></div>
+      </div>
+      <div id="detail-tags" class="building-tags" style="margin-top:12px;"></div>
+      <div class="detail-actions" style="margin-top:16px;">
+        <button class="btn-action primary" id="detail-qr-btn" onclick="openQRPage()" style="display:none;">
+          📋 QR Form
+        </button>
+        <button class="btn-action outline" onclick="showToast('Highlighted on map ✓')">
+          📍 Find on Map
+        </button>
+        <button class="btn-action fav" id="detail-fav-btn" onclick="toggleFavorite()">
+          ☆ Save
+        </button>
+      </div>
+    </div>
+    <div style="height:24px;"></div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════
+     SCREEN 4 — JEEPNEY ROUTES
+═══════════════════════════════════════════ -->
+<div id="screen-jeepney" class="screen">
+  <div class="page-header">
+    <h1>🚌 Jeepney Routes</h1>
+    <p>Find your way to and from UP Cebu</p>
+  </div>
+  <div class="jeepney-content">
+
+    <!-- Direction Toggle -->
+    <div class="toggle-wrap">
+      <button class="toggle-btn active" id="toggle-to" onclick="setDirection('to')">🎯 To UP Cebu</button>
+      <button class="toggle-btn" id="toggle-from" onclick="setDirection('from')">🏠 From UP Cebu</button>
+    </div>
+
+    <!-- Route Filters -->
+    <div class="route-filters" id="route-filters">
+      <button class="route-pill active" onclick="filterRoute(this,'all')">All Routes</button>
+      <button class="route-pill" onclick="filterRoute(this,'04L')">04L</button>
+      <button class="route-pill" onclick="filterRoute(this,'12L')">12L</button>
+      <button class="route-pill" onclick="filterRoute(this,'20B')">20B</button>
+      <button class="route-pill" onclick="filterRoute(this,'01C')">01C</button>
+      <button class="route-pill" onclick="filterRoute(this,'10C')">10C</button>
+    </div>
+
+    <!-- Start/End Selects -->
+    <div class="select-group">
+      <label id="start-label">📍 Start Location</label>
+      <select id="start-stop">
+        <option value="">Select starting point...</option>
+        <option>Colon Street</option>
+        <option>SM City Cebu</option>
+        <option>Ayala Center Cebu</option>
+        <option>Carbon Market</option>
+        <option>Fuente Osmena</option>
+        <option>Talamban Junction</option>
+        <option>Gaisano Country Mall</option>
+        <option>IT Park</option>
+        <option>Lahug Area</option>
+        <option>North Bus Terminal</option>
+      </select>
+    </div>
+    <div class="select-group">
+      <label id="dest-label">🏁 Destination</label>
+      <select id="dest-stop">
+        <option value="">Select destination...</option>
+        <option>UP Cebu Entrance Gate</option>
+        <option>Colon Street</option>
+        <option>SM City Cebu</option>
+        <option>Ayala Center Cebu</option>
+        <option>Carbon Market</option>
+        <option>Fuente Osmena</option>
+        <option>Talamban Junction</option>
+      </select>
+    </div>
+
+    <!-- Traffic Toggle -->
+    <div class="traffic-toggle-row">
+      <div>
+        <span>🚦 Include Traffic Delay</span>
+        <small>Multiplies travel time by 1.3×</small>
+      </div>
+      <label class="toggle-switch">
+        <input type="checkbox" id="traffic-toggle" />
+        <span class="toggle-slider"></span>
+      </label>
+    </div>
+
+    <button class="find-route-btn" onclick="findRoute()">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+      Find Route
+    </button>
+
+    <!-- Route Result -->
+    <div class="route-result" id="route-result">
+      <div class="route-result-header">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12h18M3 6h18M3 18h18"/></svg>
+        <div>
+          <h3 id="result-route-name">Route Found</h3>
+          <p id="result-route-code">via 04L</p>
+        </div>
+        <span style="margin-left:auto;background:rgba(255,255,255,0.2);padding:3px 10px;border-radius:20px;font-size:11px;font-family:var(--font-head);font-weight:600;">ACTIVE</span>
+      </div>
+      <div class="route-steps" id="route-steps"></div>
+      <div class="route-summary">
+        <div class="summary-item">
+          ⏱️ <strong id="result-time">—</strong>
+        </div>
+        <div class="summary-item">
+          💵 <strong id="result-fare">—</strong>
+        </div>
+      </div>
+      <p class="disclaimer">⚠️ Estimated arrival: <span id="result-range">—</span> (Traffic may vary. Not real-time.)</p>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════
+     SCREEN 5 — QR GRIEVANCE
+═══════════════════════════════════════════ -->
+<div id="screen-qr" class="screen">
+  <div class="page-header">
+    <h1>📋 QR Grievance</h1>
+    <p>Submit concerns to campus offices</p>
+  </div>
+  <div class="qr-content">
+    <div class="qr-instruction">
+      <strong>How to use:</strong> Tap a card to view the QR code of the office. Scan it with your camera to open the grievance form for that office.
+    </div>
+    <div class="qr-grid" id="qr-grid"></div>
+  </div>
+</div>
+
+<!-- QR Modal -->
+<div class="qr-modal-overlay" id="qr-modal-overlay" onclick="closeQRModal(event)">
+  <div class="qr-modal">
+    <h3 id="qr-modal-title">Office QR Code</h3>
+    <p id="qr-modal-desc">Scan with your camera to open the grievance form.</p>
+    <div class="qr-code-box">
+      <div>
+        <div style="font-size:40px;">📱</div>
+        <strong id="qr-modal-office">Office</strong>
+        <br/>QR Code Placeholder<br/>
+        <small style="font-size:9px;">(Link to external form)</small>
+      </div>
+    </div>
+    <button class="btn-close-modal" onclick="closeQRModal()">Close</button>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════
+     SCREEN 6 — FAVORITES
+═══════════════════════════════════════════ -->
+<div id="screen-favorites" class="screen">
+  <div class="page-header">
+    <h1>⭐ Favorites</h1>
+    <p>Your saved buildings</p>
+  </div>
+  <div class="favorites-content">
+    <div class="favorites-empty" id="fav-empty">
+      <div class="empty-icon">🌟</div>
+      <h3>No favorites yet</h3>
+      <p>Tap the ☆ icon on any building to save it here.</p>
+    </div>
+    <div id="favorites-list"></div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════
+     SCREEN 7 — PROFILE
+═══════════════════════════════════════════ -->
+<div id="screen-profile" class="screen">
+  <div class="page-header">
+    <h1>👤 Profile & Settings</h1>
+    <p>Manage your account and preferences</p>
+  </div>
+  <div class="profile-content">
+    <!-- Profile Card -->
+    <div class="profile-card">
+      <div class="profile-avatar" id="profile-avatar">IS</div>
+      <div class="profile-info">
+        <h3 id="profile-name">Isko Student</h3>
+        <p id="profile-username">@iskostudent</p>
+        <span class="profile-badge" id="profile-role">Student</span>
+      </div>
+    </div>
+
+    <!-- Preferences -->
+    <div class="settings-section">
+      <div class="settings-section-title">Preferences</div>
+      <div class="settings-item" onclick="toggleDarkMode()">
+        <div class="settings-item-left">
+          <div class="settings-icon">🌙</div>
+          <div class="settings-label">
+            <h4>Dark Mode</h4>
+            <p id="dark-mode-label">Currently: Light</p>
+          </div>
+        </div>
+        <label class="toggle-switch">
+          <input type="checkbox" id="dark-toggle" onchange="toggleDarkMode()" />
+          <span class="toggle-slider"></span>
+        </label>
+      </div>
+      <div class="settings-item" onclick="clearCache()">
+        <div class="settings-item-left">
+          <div class="settings-icon">🗑️</div>
+          <div class="settings-label">
+            <h4>Clear Cache</h4>
+            <p>Remove locally stored data</p>
+          </div>
+        </div>
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--gray-400)" stroke-width="2"><path d="m9 18 6-6-6-6"/></svg>
+      </div>
+    </div>
+
+    <!-- About -->
+    <div class="settings-section">
+      <div class="settings-section-title">About</div>
+      <div class="settings-item">
+        <div class="settings-item-left">
+          <div class="settings-icon">ℹ️</div>
+          <div class="settings-label">
+            <h4>App Version</h4>
+            <p>ISKOMPASS v1.0.0-prototype</p>
+          </div>
+        </div>
+      </div>
+      <div class="settings-item">
+        <div class="settings-item-left">
+          <div class="settings-icon">🏫</div>
+          <div class="settings-label">
+            <h4>Campus Data</h4>
+            <p>Gabay Isko, June 2025</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Admin Login -->
+    <div class="settings-section">
+      <div class="settings-section-title">Admin Access</div>
+      <div class="settings-item" id="admin-login-row" onclick="showAdminLogin()">
+        <div class="settings-item-left">
+          <div class="settings-icon">🔒</div>
+          <div class="settings-label">
+            <h4>Admin Login</h4>
+            <p>Restricted to campus administrators</p>
+          </div>
+        </div>
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--gray-400)" stroke-width="2"><path d="m9 18 6-6-6-6"/></svg>
+      </div>
+    </div>
+
+    <!-- Admin Section (hidden by default) -->
+    <div class="admin-section" id="admin-section">
+      <h3>🛡️ Admin Panel</h3>
+
+      <div class="admin-form">
+        <p style="font-family:var(--font-head);font-size:12px;font-weight:700;color:var(--gray-600);margin-bottom:8px;text-transform:uppercase;letter-spacing:.5px;">🏢 Data Editor — Building</p>
+        <label>Building Name</label>
+        <input type="text" id="admin-bldg-name" placeholder="e.g. Science Building" />
+        <label>X Coordinate</label>
+        <input type="text" id="admin-bldg-x" placeholder="e.g. 0.45" />
+        <label>Y Coordinate</label>
+        <input type="text" id="admin-bldg-y" placeholder="e.g. 0.22" />
+        <button class="btn-admin-save" onclick="adminSaveBuilding()">💾 Save to campus_data.csv</button>
+      </div>
+
+      <div class="divider"></div>
+
+      <div class="admin-form">
+        <p style="font-family:var(--font-head);font-size:12px;font-weight:700;color:var(--gray-600);margin-bottom:8px;text-transform:uppercase;letter-spacing:.5px;">🚌 Route Manager</p>
+        <label>Route Code</label>
+        <input type="text" id="admin-route-code" placeholder="e.g. 04L" />
+        <label>New Base Travel Time (min)</label>
+        <input type="text" id="admin-route-time" placeholder="e.g. 25" />
+        <button class="btn-admin-save" onclick="adminSaveRoute()">💾 Save to routes_data.csv</button>
+      </div>
+
+      <div class="divider"></div>
+
+      <p style="font-family:var(--font-head);font-size:12px;font-weight:700;color:var(--gray-600);margin-bottom:8px;text-transform:uppercase;letter-spacing:.5px;">📋 System Log</p>
+      <div class="log-box" id="admin-log-box">
+        Last config update: 2025-06-15 10:23:44<br/>
+        Route 04L updated: base_time=28min<br/>
+        Building "TIC" coordinates updated<br/>
+        Admin: admin | Action: data_update<br/>
+      </div>
+    </div>
+
+    <!-- Logout -->
+    <button onclick="doLogout()" style="width:100%;padding:14px;background:transparent;color:var(--maroon);border:1.5px solid var(--maroon);border-radius:var(--radius-sm);font-family:var(--font-head);font-size:14px;font-weight:600;margin-top:8px;">
+      🚪 Sign Out
+    </button>
+
+    <div class="version-info">
+      <strong>ISKOMPASS</strong> · UP Cebu Campus Guide<br/>
+      Prototype v1.0 · Built for Isko & Iska
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════
+     BOTTOM TAB BAR (hidden on login)
+═══════════════════════════════════════════ -->
+<nav class="tab-bar" id="tab-bar" style="display:none;">
+  <button class="tab-item active" id="tab-home" onclick="goTo('home')">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+    Home
+  </button>
+  <button class="tab-item" id="tab-navigate" onclick="goTo('navigate')">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="3 11 22 2 13 21 11 13 3 11"/></svg>
+    Navigate
+  </button>
+  <button class="tab-item" id="tab-favorites" onclick="goTo('favorites')">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+    Favorites
+  </button>
+  <button class="tab-item" id="tab-profile" onclick="goTo('profile')">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+    Profile
+  </button>
+</nav>
+
+<!-- Toast -->
+<div class="toast" id="toast"></div>
+
+<script src="app.js"></script>
+</body>
+</html>
